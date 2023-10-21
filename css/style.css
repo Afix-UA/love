@@ -1,0 +1,114 @@
+/* Скидання стилів */
+@import url("reset.css");
+
+
+@font-face {
+	font-family: "CormorantInfant";
+	src:
+		url("../fonts/CormorantInfant-Bold.woff2") format("woff2"),
+		url("../fonts/CormorantInfant-Bold.woff") format("woff");
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap;
+}
+
+body{
+    background-color: #04e6ee;
+}
+
+/* Основні стилі */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+    
+}
+
+.block {
+    width: 200px;
+    height: 200px;
+    background-color: #ff0000;
+    rotate: 45deg;
+    position: relative;
+    animation: .8s linear infinite alternate puls;
+    margin-bottom: 20px;
+}
+.block::after,.block::before {
+    position: absolute;
+    content: "";
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #ff0000;
+    /* transform: translate(-200px); */
+    
+}
+.block::after{
+    top: -100px;
+    right: 0;
+}
+.block::before {
+    top: 0;
+    right: 100px;
+}
+/* h1 {
+    text-transform: capitalize;
+    font-size: 100px;
+    position: absolute;
+    bottom: 50px;
+    font-family: "CormorantInfant",sans-serif ;
+    color: #ff0000;
+    text-shadow:  5px 5px 10px;
+} */
+
+.text {
+    font-size:100px;
+    position: absolute;
+    top: 70%;
+    font-family: "CormorantInfant",sans-serif ;
+    color: #ff0000;
+    text-shadow:  5px 5px 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    -webkit-box-reflect: below -20px 
+    linear-gradient( transparent, rgba(255, 0, 0, 0.8));
+}
+.text span {
+    
+    display: inline-block;
+    animation:  1s infinite waviy;
+    animation-delay: calc(.2s * var(--i));
+}
+@keyframes waviy {
+    0%,
+    40%,
+    100% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(-5px);
+    }
+    
+}
+
+@keyframes puls {
+    10% {
+        transform: scale(1.1);
+    }
+    
+}
+
+@media (max-width: 767px) {
+    .text {
+        font-size:60px;
+    }
+}
+
+@media (max-width: 568px) {
+    .text {
+        font-size:50px;
+    }
+}
